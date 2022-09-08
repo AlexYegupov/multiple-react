@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>test static site - page2</title>
+    <script>
+     function buttonClicked() {
+       const ul = document.getElementById("mylist");
+       ul.innerHTML = ul.innerHTML + `<li>${new Date()}</li>`
+     }
+    </script>
+  </head>
+  <body>
+    <h1>test static site - page2</h1>
+    <a href="./index.html">index</a>
+    <a href="./page2.html">page2</a>
+
+    <ul id="mylist">
+      <li>item 1</li>
+      <li>item 2</li>
+    </ul>
+    <button onclick="buttonClicked()">add item</button>
+  </body>
+</html>

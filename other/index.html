@@ -14,6 +14,12 @@
     <title>React App</title>
   </head>
   <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+
+    <h1>Static content:</h1>
+    <a href="./page2.html">page2</a>
+
     <script>
      function buttonClicked() {
        const ul = document.getElementById("mylist");
@@ -21,12 +27,7 @@
      }
     </script>
 
-    <h1>React content </h1>
-    <div id="root">
-      this is root
-    </div>
-
-    <h1>Static content (no React)</h1>
+    <h1>Static content</h1>
 
     <a href="./index.html">index</a>
     <a href="./page2.html">page2</a>
@@ -37,10 +38,8 @@
     </ul>
     <button onclick="buttonClicked()">add item</button>
 
-    <h1>Other React content</h1>
-    <div id="root2">
-      this is root2
-    </div>
+    <h1>React content</h1>
+    <div id="root"></div>
 
   </body>
 </html>
