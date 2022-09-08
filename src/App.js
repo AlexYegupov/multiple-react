@@ -10,10 +10,6 @@ import List from './List';
 import logo from './logo.svg';
 import './App.css';
 
-import AAA from './App.css';
-
-console.log(`AAAAAAAAAAAAAAA`, AAA)
-
 // This site has 3 pages, all of which are rendered
 // dynamically in the browser (not server rendered).
 //
@@ -70,30 +66,3 @@ function Dashboard() {
     </div>
   );
 }
-
-/* import logo from './logo.svg';
- * import './App.css';
- *
- * function App() {
- *   return (
- *     <div className="App">
- *       <header className="App-header">
- *         <img src={logo} className="App-logo" alt="logo" />
- *         <p>
- *           Edit <code>src/App.js</code> and save to reload.
- *         </p>
- *         <a
- *           className="App-link"
- *           href="https://reactjs.org"
- *           target="_blank"
- *           rel="noopener noreferrer"
- *         >
- *           Learn React
- *         </a>
- *       </header>
- *     </div>
- *   );
- * }
- *
- * export default App;
- *  */
