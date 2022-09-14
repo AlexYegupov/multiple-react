@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Spinner - Default functionality</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script src="https://jqueryui.com/resources/demos/external/jquery-mousewheel/jquery.mousewheel.js"></script>
+
+  <!-- <script defer="defer" src="/static/js/main.0a96ff2c.js"></script>
+       <link href="/static/css/main.a415081b.css" rel="stylesheet"> -->
+
+  <script>
+  $( function() {
+    var spinner = $( "#spinner" ).spinner();
+
+    $( "#disable" ).on( "click", function() {
+      if ( spinner.spinner( "option", "disabled" ) ) {
+        spinner.spinner( "enable" );
+      } else {
+        spinner.spinner( "disable" );
+      }
+    });
+    $( "#destroy" ).on( "click", function() {
+      if ( spinner.spinner( "instance" ) ) {
+        spinner.spinner( "destroy" );
+      } else {
+        spinner.spinner();
+      }
+    });
+    $( "#getvalue" ).on( "click", function() {
+      alert( spinner.spinner( "value" ) );
+    });
+
+
+
+    function loadCSS(file) {
+      var head = document.getElementsByTagName('head')[0]
+
+      // Creating link element
+      var style = document.createElement('link')
+      style.href = file
+      style.type = 'text/css'
+      style.rel = 'stylesheet'
+      head.append(style);
+    }
+
+     $( "#loadReact" ).on( "click", function() {
+       //load js
+       $.getScript("/static/js/main.0a96ff2c.js", function( data, textStatus, jqxhr ) {
+        //console.log( data ); // Data returned
+        console.log( textStatus ); // Success
+        console.log( jqxhr.status ); // 200
+        console.log( "Load was performed" );
+      });
+
+      // load css (Note: direct DOM manipulation, no jquery)
+      loadCSS('/static/css/main.a415081b.css')
+
+    });
+
+    $( "button" ).button();
+  } );
+  </script>
+</head>
+<body>
+
+<p>
+  <label for="spinner">Select a value:</label>
+  <input id="spinner" name="value">
+</p>
+
+<p>
+  <button id="disable">Toggle disable/enable</button>
+  <button id="destroy">Toggle widget</button>
+</p>
+
+<p>
+  <button id="getvalue">Get value</button>
+  <button id="loadReact">LOAD REACT</button>
+</p>
+
+
+
+
+<div id="root">
+  this is root
+</div>
+<div id="root2">
+  this is root2
+</div>
+
+
+</body>
+</html>
