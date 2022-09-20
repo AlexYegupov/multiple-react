@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
   Routes,
@@ -22,8 +23,8 @@ import './App.css';
 export default function BasicExample() {
   return (
     <Router>
-      <div>
-        <h2>This is react app 1</h2>
+      <div className="pink">
+        <h2>React app 1</h2>
         <img src={logo} className="logo" alt="logo" />
         <ul>
           <li>
@@ -33,22 +34,27 @@ export default function BasicExample() {
             <Link to="/about">About</Link>
           </li>
           <li>
-            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/dashboard">Dashboard -> external1</Link>
           </li>
         </ul>
 
         <Routes>
-          <Route exact path="/" element={<List colorClass="blue" />} />
+          <Route exact path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
+
       </div>
     </Router>
   );
 }
 
-// You can think of these components as "pages"
-// in your app.
+
+function Home() {
+  return (
+    <List colorClass="blue" />
+  )
+}
 
 
 function About() {
@@ -60,9 +66,12 @@ function About() {
 }
 
 function Dashboard() {
-  return (
-    <div>
-      <h2>Dashboard</h2>
-    </div>
+  const external = document.getElementById('external1')
+  return ReactDOM.createPortal(
+    (<div>
+      <h2>Dashboard with list</h2>
+      <List colorClass="olive" />
+    </div>),
+    external
   );
 }
