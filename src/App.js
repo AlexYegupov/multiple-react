@@ -25,7 +25,7 @@ export default function BasicExample() {
     <Router>
       <div className="pink">
         <h2>React app 1</h2>
-        <img src={logo} className="logo" alt="logo" />
+        {/* <img src={logo} className="logo" alt="logo" /> */}
         <ul>
           <li>
             <Link to="/">Home</Link>
@@ -68,7 +68,7 @@ function About() {
 function Dashboard() {
   const external = document.getElementById('external1')
   return ReactDOM.createPortal(
-    (<div>
+    (<div className="pink">
       <h2>Dashboard with list</h2>
       <List colorClass="olive" />
     </div>),
