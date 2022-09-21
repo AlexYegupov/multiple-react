@@ -5304,6 +5304,11 @@ jake@^10.8.5:
     filelist "^1.0.1"
     minimatch "^3.0.4"
 
+javascript-router@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/javascript-router/-/javascript-router-0.0.5.tgz#50d66a3b7b1a7f18215db953dd1f068632d54595"
+  integrity sha512-snOVSMo0ND8Es/jCSVmF2kvEFUSoIG59pmS/O8vR/VldPj2+ZZHcyKC5H4/M3LfhrX+Zk7xA0VgcL8nYpbEUHw==
+
 jest-changed-files@^27.5.1:
   version "27.5.1"
   resolved "https://registry.yarnpkg.com/jest-changed-files/-/jest-changed-files-27.5.1.tgz#a348aed00ec9bf671cc58a66fcbe7c3dfd6a68f5"

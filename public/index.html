@@ -24,13 +24,15 @@
 
     <!-- <h1>React content </h1> -->
     <div id="root">
-      this is root
+      root
     </div>
 
     <div class="staticcontent">
       <h1>Static content (no React)</h1>
+
       <div id="external1">external1</div>
       <div id="external2">external2</div>
+
       <a href="./index.html">index</a>
       <a href="./page2.html">page2</a>
       <a href="./test-jquery.html">test jquery</a>
@@ -39,12 +41,114 @@
         <li>item 2</li>
       </ul>
       <button onclick="buttonClicked()">add item</button>
+      <hr />
+      <button onclick="window._initRoot2()">init react app 2</button>
     </div>
 
     <!-- <h1>Other React content</h1> -->
     <div id="root2">
-      this is root2
+      root2
     </div>
+
+
+    <div class="externalrouter">
+      External router & navigation:
+      <nav>
+        <ul>
+          <li>
+            <a href="/" data-router>Home</a>
+          </li>
+          <li>
+            <a href="/about" data-router>About</a>
+          </li>
+          <li>
+            <a href="/contact" data-router>Contact</a>
+          </li>
+          <li>
+            <a href="/user" data-router>User</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div>
+        <button id="btn">Go to /contact with JS</button>
+      </div>
+
+      <div>
+        <a href="/contact" data-router>
+          <div style="position: relative; width: 50px; height: 50px; background-color: black;">
+
+          </div>
+        </a>
+      </div>
+
+      <div>
+        <a href="/user/123" data-router>User 123</a>
+      </div>
+
+      <div>
+        <a href="/user/123/sam" data-router>User 123 sam</a>
+      </div>
+
+      <div>
+        <a href="/user?id=123" data-router>User id=123</a>
+      </div>
+
+
+      <div>
+        <a href="/not-found" data-router>Not Found</a>
+      </div>
+
+      <div id="rootForRouter">
+        this is root for router
+      </div>
+    </div>
+
+    <script>
+     import("./router.mjs").then(({ Router }) => {
+       console.log(`R:`, Router)
+       const router = new Router('');
+       const root = document.getElementById('rootForRouter');
+
+       router
+         .on('/', () => {
+           console.log('Home');
+           root.innerHTML = 'Home';
+         })
+         .on('/about', () => {
+           console.log('About');
+           root.innerHTML = 'ABOUT <br> <a href="/" data-router>Home</a>';
+           router.redefineLinks();
+         })
+         .on('/contact', () => {
+           console.log('Contact');
+           root.innerHTML = 'Contact';
+         })
+         .on('/user', (query) => {
+           console.log('User', query);
+           root.innerHTML = 'User' + query;
+         })
+         .on('/user/:user_id', (query, params) => {
+           console.log('User', params);
+           root.innerHTML = 'User ' + JSON.stringify(params);
+         })
+         .on('/user/:user_id/:name', (query, params) => {
+           console.log('User', params);
+           root.innerHTML = 'User ' + JSON.stringify(params);
+         })
+         .notFound(query => {
+           console.log('Not Found', query);
+           root.innerHTML = '404';
+         })
+         .init();
+
+       const btn = document.querySelector('#btn');
+
+       btn.addEventListener('click', () => {
+         router.navigate('/contact');
+       })
+     })
+    </script>
 
   </body>
 </html>

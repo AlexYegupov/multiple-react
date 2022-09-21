@@ -17,3 +17,7 @@
 #external2 {
   border: 1px solid black;
 }
+
+.externalrouter {
+  background: lightgray;
+}
