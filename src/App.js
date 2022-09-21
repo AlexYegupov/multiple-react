@@ -15,9 +15,10 @@ import './App.css';
 export default function BasicExample() {
   return (
     <Router>
-      <div className="pink">
+      <div className="pink all">
         <h2>React app 1</h2>
-        {/* <img src={logo} className="logo" alt="logo" /> */}
+
+        React router:
         <ul>
           <li>
             <Link to="/">Home</Link>

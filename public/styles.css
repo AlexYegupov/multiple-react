@@ -25,3 +25,8 @@
 .externalrouter {
   background: lightgray;
 }
+
+#rootForRouter {
+  padding: 1em;
+  background: darkgray;         
+}
