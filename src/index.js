@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import App2 from './App2';
+import App3 from './App3';
 //import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -12,11 +13,21 @@ root.render(
   </React.StrictMode>
 );
 
-window._initRoot2 = function() {
-  const root2 = ReactDOM.createRoot(document.getElementById('root2'));
-  root2.render(
+window._initReact2 = function() {
+  const root = ReactDOM.createRoot(document.getElementById('root2'));
+  root.render(
     <React.StrictMode>
       <App2 />
+    </React.StrictMode>
+  );
+}
+
+
+window._initReact3 = function() {
+  const root = ReactDOM.createRoot(document.getElementById('root2'));
+  root.render(
+    <React.StrictMode>
+      <App3 />
     </React.StrictMode>
   );
 }
