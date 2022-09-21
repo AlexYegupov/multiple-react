@@ -22,15 +22,12 @@
      }
     </script>
 
-    <div id="root">
-      root
-    </div>
 
     <div class="staticcontent">
       <h1>Static content (no React)</h1>
 
       <div id="external1">external1</div>
-      <div id="external2">external2</div>
+
 
       <ul id="mylist">
         <li>item 1</li>
@@ -40,12 +37,13 @@
       <hr />
     </div>
 
-    <div id="root2">
-      root2
-    </div>
-
     <div class="externalrouter">
       External router & navigation:
+
+      <div id="root">
+        root
+      </div>
+
       <nav>
         <a href="/" data-router>Home</a>
         <a href="/page2" data-router>Page2</a>
@@ -74,7 +72,10 @@
            console.log('page2');
            root.innerHTML = `
              <h3>Page2</h3>
-             <button onclick="window._initReact2()">init react app 2</button>
+             <div id="external2">external2 on page2</div>
+             <div id="external3">external3 on page2</div>
+             <button onclick="window._initReact2('external2')">init react app 2</button>
+             <button onclick="window._initReact3('external3')">init react app 3</button>
              <br />
            `;
            router.redefineLinks();
@@ -83,7 +84,10 @@
            console.log('Page3');
            root.innerHTML = `
              <h3>Page3</h3>
-             <button onclick="window._initReact3()">init react app 3</button>
+             <div id="external2">external2 on page3</div>
+             <div id="external3">external3 on page3</div>
+             <button onclick="window._initReact2('external2')">init react app 2</button>
+             <button onclick="window._initReact3('external3')">init react app 3</button>
              <br />
            `;
          })

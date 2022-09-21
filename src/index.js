@@ -13,21 +13,21 @@ root.render(
   </React.StrictMode>
 );
 
-window._initReact2 = function() {
-  const root = ReactDOM.createRoot(document.getElementById('root2'));
+window._initReact2 = function(elementId) {
+  const root = ReactDOM.createRoot(document.getElementById(elementId));
   root.render(
     <React.StrictMode>
-      <App2 />
+      <App2 elementId={elementId} />
     </React.StrictMode>
   );
 }
 
 
-window._initReact3 = function() {
-  const root = ReactDOM.createRoot(document.getElementById('root2'));
+window._initReact3 = function(elementId) {
+  const root = ReactDOM.createRoot(document.getElementById(elementId));
   root.render(
     <React.StrictMode>
-      <App3 />
+      <App3 elementId={elementId} />
     </React.StrictMode>
   );
 }
