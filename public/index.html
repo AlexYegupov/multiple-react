@@ -32,16 +32,16 @@
       <div id="external1">external1</div>
       <div id="external2">external2</div>
 
-      <a href="./index.html">index</a>
-      <a href="./page2.html">page2</a>
-      <a href="./test-jquery.html">test jquery</a>
+      <!-- <a href="./index.html">index</a>
+           <a href="./page2.html">page2</a>
+           <a href="./test-jquery.html">test jquery</a> -->
       <ul id="mylist">
         <li>item 1</li>
         <li>item 2</li>
       </ul>
       <button onclick="buttonClicked()">add item</button>
       <hr />
-      <button onclick="window._initRoot2()">init react app 2</button>
+      <!-- <button onclick="window._initRoot2()">init react app 2</button> -->
     </div>
 
     <!-- <h1>Other React content</h1> -->
@@ -80,20 +80,25 @@
            console.log('Home');
            root.innerHTML = `
              <h3>Home</h3>
-             <button onclick="window._initReact2()">init react app 2</button>
+             <br />
            `;
          })
          .on('/page2', () => {
            console.log('page2');
            root.innerHTML = `
              <h3>Page2</h3>
-             <button onclick="window._initReact3()">init react app 3</button>
+             <button onclick="window._initReact2()">init react app 2</button>
+             <br />
            `;
            router.redefineLinks();
          })
          .on('/page3', () => {
            console.log('Page3');
-           root.innerHTML = 'Page3';
+           root.innerHTML = `
+             <h3>Page3</h3>
+             <button onclick="window._initReact3()">init react app 3</button>
+             <br />
+           `;
          })
          .notFound(query => {
            console.log('Not Found', query);
